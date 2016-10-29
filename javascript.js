@@ -3,6 +3,7 @@ angular.module('portalApp')
 .controller('reflectCtrl', ['$scope', 'reflectFactory', function ($scope, reflectFactory) {
     console.log('ctrl!');
     
+    
     // Import variables and functions from service
     $scope.insertValue = reflectFactory.insertValue;
     $scope.loading = reflectFactory.loading;
