@@ -2,7 +2,7 @@
 
 // Retreive data from the database
 function getData() {
-    var queryResult = db.Execute('SELECT * FROM sampleTable');
+    var queryResult = db.Execute('SELECT * FROM sampleTable ORDER BY id DESC');
     var rows = JSON.parse(queryResult);
     if (rows.length > 0 && typeof rows[0].Error != 'undefined') {
         return '{"status":"noTable"}';
@@ -18,7 +18,7 @@ function createTable() {
     var row = JSON.parse(queryResult);
 
     if (row.length > 0 && typeof row[0].Error != 'undefined') {
-        db.Execute('CREATE TABLE sampleTable(id INTEGER PRIMARY KEY IDENTITY(1,1), userId nvarchar(50), value nvarchar(50));');
+        db.Execute('CREATE TABLE sampleTable(id INTEGER PRIMARY KEY IDENTITY(1,1), userId nvarchar(50), value nvarchar(50)), likes INTEGER;');
         result = '{"status":"tableCreated"}';
     } else
         result = '{"status":"tableExist"}';
