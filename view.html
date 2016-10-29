@@ -1,17 +1,19 @@
 <!-- Primary template that will get shown when widget loads -->
 <script type="text/ng-template" id="reflectMain.html"> 
-	<widget-row ng-repeat="item in items" clickable ng-click="showDetails(item)">
-		<widget-cell fill>
-			<span class="itemName">{{item.title}}</span>
-			<span ng-repeat= "tag in item.tags" class="label label-success">
-				{{tag}}
-			</span>
-		</widget-cell>
-		<widget-cell>
-			<widget-icon name="angle-right"></widget-icon>
-		</widget-cell>
-	</widget-row>
+<form>
+  <div class="form-group">
+    <input type="post" class="form-control" id="InputPost" placeholder="#Midterm">
+  </div>
+  <button type="post" class="btn btn-default">Post</button>   
+</form>
+    <div ng-controller="PagerDemoCtrl"><br>
+  <pre>Ryan Han:
+#Midterm I feel bad about the midterm</pre>
+        
+</div>
+    	
 </script>
+
 
 <!-- This template gets shown when user clicks one of the items in the list -->
 <script type="text/ng-template" id="reflectDetails.html"> 
