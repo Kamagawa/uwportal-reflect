@@ -40,7 +40,7 @@
                     <!-- <a href="#" class="list-group-item">{{item.userId}}: {{item.value}}</a> -->
                     <widget-row><font size="6"> {{item.value}} </font> </widget-row>
                     <widget-row style="text-align : right"> -{{item.userId}} </widget-row>
-                    <widget-row> {{item.likes}} <span  class="glyphicon glyphicon-heart" aria-hidden="true"></span> <widget-row>
+                    <widget-row> {{item.likes}} <span  class="glyphicon glyphicon-heart" aria-hidden="true"></span> <span style="font-weight:10"> posted {{item.timePosted}} </span><widget-row>
                 	<button ng-click="addLike(item.id)" type="button" class="btn btn-default btn-sm">
                     	<span  class="glyphicon glyphicon-heart" aria-hidden="true"></span> Like
                 	</button>

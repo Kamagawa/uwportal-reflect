@@ -43,6 +43,9 @@ angular.module('portalApp')
             $scope.portalHelpers.invokeServerFunction('insert', {
                 value: $scope.insertValue.value
             }).then(function (result) {
+                for (var i = 0; i < result.length; ++i) {
+                    result[i].timePosted = moment(result[i].timePosted).fromNow ();
+                }
                 $scope.dbData.value = result;
                 console.log ("End insert data");
             });
@@ -56,7 +59,10 @@ angular.module('portalApp')
      	$scope.portalHelpers.invokeServerFunction('addLike', {
             userId : id
         }).then (function (result) {
-			$scope.dbData.value = result;
+            for (var i = 0; i < result.length; ++i) {
+                result[i].timePosted = moment(result[i].timePosted).fromNow ();
+            }
+ 			$scope.dbData.value = result;
         });
     };
 
@@ -90,6 +96,9 @@ angular.module('portalApp')
             // Place your init code here:
             $scope.portalHelpers.invokeServerFunction('getData').then(function (result) {
                 console.log('got data: ', result);
+                for (var i = 0; i < result.length; ++i) {
+                    result[i].timePosted = moment(result[i].timePosted).fromNow ();
+                }
                 dbData.value = result;
                 sourceLoaded();
             });
