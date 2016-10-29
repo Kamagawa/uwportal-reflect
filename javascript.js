@@ -1,16 +1,16 @@
 angular.module('portalApp')
 
-.controller('ReflectCtrl', ['$scope', 'ReflectFactory', function ($scope, ReflectFactory) {
+.controller('reflectCtrl', ['$scope', 'reflectFactory', function ($scope, reflectFactory) {
     console.log('ctrl!');
     
     // Import variables and functions from service
-    $scope.insertValue = ReflectFactory.insertValue;
+    $scope.insertValue = reflectFactory.insertValue;
     console.log('hi2');
-    $scope.loading = ReflectFactory.loading;
-    $scope.dbData = ReflectFactory.dbData;
+    $scope.loading = reflectFactory.loading;
+    $scope.dbData = reflectFactory.dbData;
     
     // initialize the service
-    ReflectFactory.init($scope);
+    reflectFactory.init($scope);
 console.log('hi');
     // watch for changes in the loading variable
     $scope.$watch('loading.value', function () {
@@ -22,7 +22,7 @@ console.log('hi');
             $scope.portalHelpers.toggleLoading(true);
         } else {
             console.log('showing main');
-            $scope.portalHelpers.showView('ReflectMain.html', 1);
+            $scope.portalHelpers.showView('reflectMain.html', 1);
             $scope.portalHelpers.toggleLoading(false);
         }
     });
@@ -50,7 +50,7 @@ console.log('hi');
 
 }])
     // Factory maintains the state of the widget
-    .factory('ReflectFactory', [ function () {
+    .factory('reflectFactory', [ function () {
         var initialized = {
             value: false
         };
@@ -98,17 +98,17 @@ console.log('hi');
 
     }]);angular.module('portalApp')
 
-.controller('ReflectCtrl', ['$scope', 'ReflectFactory', function ($scope, ReflectFactory) {
+.controller('reflectCtrl', ['$scope', 'reflectFactory', function ($scope, reflectFactory) {
     console.log('ctrl!');
     
     // Import variables and functions from service
-    $scope.insertValue = ReflectFactory.insertValue;
+    $scope.insertValue = reflectFactory.insertValue;
     console.log('hi2');
-    $scope.loading = ReflectFactory.loading;
-    $scope.dbData = ReflectFactory.dbData;
+    $scope.loading = reflectFactory.loading;
+    $scope.dbData = reflectFactory.dbData;
     
     // initialize the service
-    ReflectFactory.init($scope);
+    reflectFactory.init($scope);
 console.log('hi');
     // watch for changes in the loading variable
     $scope.$watch('loading.value', function () {
@@ -120,7 +120,7 @@ console.log('hi');
             $scope.portalHelpers.toggleLoading(true);
         } else {
             console.log('showing main');
-            $scope.portalHelpers.showView('ReflectMain.html', 1);
+            $scope.portalHelpers.showView('reflectMain.html', 1);
             $scope.portalHelpers.toggleLoading(false);
         }
     });
@@ -148,7 +148,7 @@ console.log('hi');
 
 }])
     // Factory maintains the state of the widget
-    .factory('ReflectFactory', [ function () {
+    .factory('reflectFactory', [ function () {
         var initialized = {
             value: false
         };
