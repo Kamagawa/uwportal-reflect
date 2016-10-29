@@ -5,13 +5,12 @@ angular.module('portalApp')
     
     // Import variables and functions from service
     $scope.insertValue = reflectFactory.insertValue;
-    console.log('hi2');
     $scope.loading = reflectFactory.loading;
     $scope.dbData = reflectFactory.dbData;
     
     // initialize the service
     reflectFactory.init($scope);
-console.log('hi');
+    
     // watch for changes in the loading variable
     $scope.$watch('loading.value', function () {
         // if loading
