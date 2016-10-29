@@ -39,8 +39,9 @@
             <widget-row ng-repeat="item in dbData.value">
                 <widget-cell>
                     <a href="#" class="list-group-item">{{item.userId}}: {{item.value}}</a>
-                	<button type="button" class="btn btn-default btn-sm">
-                    	<span class="glyphicon glyphicon-heart" aria-hidden="true"></span> Like
+                    <widget-row> Likes : {{item.likes}} <widget-row>
+                	<button ng-click="addLike(item.id)" type="button" class="btn btn-default btn-sm">
+                    	<span  class="glyphicon glyphicon-heart" aria-hidden="true"></span> Like
                 	</button>
                 	<button type="button" class="btn btn-default btn-sm">
                     	<span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Comment
