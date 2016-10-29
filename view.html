@@ -1,17 +1,10 @@
 <!-- Primary template that will get shown when widget loads -->
 <script type="text/ng-template" id="reflectMain.html"> 
-	<widget-row ng-repeat="item in items" clickable ng-click="showDetails(item)">
-		<widget-cell fill>
-			<span class="itemName">{{item.title}}</span>
-			<span ng-repeat= "tag in item.tags" class="label label-success">
-				{{tag}}
-			</span>
-		</widget-cell>
-		<widget-cell>
-			<widget-icon name="angle-right"></widget-icon>
-		</widget-cell>
-	</widget-row>
+    <form>
+        <input type="text" name="postwritten"><br>
+    </form>
 </script>
+
 
 <!-- This template gets shown when user clicks one of the items in the list -->
 <script type="text/ng-template" id="reflectDetails.html"> 
