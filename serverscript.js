@@ -18,7 +18,7 @@ function createTable() {
     var row = JSON.parse(queryResult);
 
     if (row.length > 0 && typeof row[0].Error != 'undefined') {
-        db.Execute('CREATE TABLE sampleTable(id INTEGER PRIMARY KEY IDENTITY(1,1), userId nvarchar(50), value nvarchar(50)), likes INTEGER;');
+        db.Execute('CREATE TABLE sampleTable(id INTEGER PRIMARY KEY IDENTITY(1,1), userId nvarchar(50), value nvarchar(50), likes INTEGER);');
         result = '{"status":"tableCreated"}';
     } else
         result = '{"status":"tableExist"}';
@@ -28,10 +28,19 @@ function createTable() {
 
 // Insert into the database
 function insert() {
+    console.log ("Insert into table");
     if (args.Get("value").length > 50)
         return '{"result":"error"}';
     else {
-        db.Execute('INSERT INTO sampleTable VALUES(@currentUser,@value)');
+        db.Execute('INSERT INTO sampleTable VALUES(@currentUser,@value, 0)');
         return getData();
     }
 }
+
+/*
+//Update likes
+function addLikes() {
+	var userId = args.Get("id");
+    db.Execute ('UPDATE sampleTable SET likes = likes + 1 WHERE id = 1');
+}
+*/
