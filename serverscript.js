@@ -37,10 +37,12 @@ function insert() {
     }
 }
 
-/*
+
 //Update likes
-function addLikes() {
-	var userId = args.Get("id");
-    db.Execute ('UPDATE sampleTable SET likes = likes + 1 WHERE id = 1');
+function addLike() {
+    console.log ("server Add likes");
+	var userId = args.Get("userId");
+    console.log ("userId : " + userId);
+    db.Execute ('UPDATE sampleTable SET likes = likes + 1 WHERE id = @userId');
+    return getData();
 }
-*/
