@@ -24,7 +24,7 @@ angular.module('portalApp')
 			details: 'Proin sem quam, rutrum id ante id, scelerisque tempor quam. Curabitur pharetra turpis at sem placerat, non vehicula ligula tincidunt.'
 		},
 		{
-			title:'Item 5',
+			title:'Item 10',
 			tags: ['tag C', 'tag K', 'tag B'],
 			details: 'Mauris nec ultricies metus. Cras et dictum justo. Nam a ullamcorper dolor. Cras fringilla metus vel facilisis vehicula.'
 		},
@@ -43,5 +43,5 @@ angular.module('portalApp')
 		// Make the item that user clicked available to the template
 		$scope.detailsItem = item;		
 		$scope.portalHelpers.showView('reflectDetails.html', 2);
-	}
+	};
 }]);
