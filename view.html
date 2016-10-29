@@ -1,49 +1,59 @@
+<script type="text/ng-template" id="loading.html">
+    <widget-row>
+        <widget-cell>
+            <div class="pDetails">
+                Loading..
+            </div>
+        </widget-cell>
+    </widget-row>
+</script>
+
+
 <!-- Primary template that will get shown when widget loads -->
 <script type="text/ng-template" id="reflectMain.html">
-    <form class="form-inline">https://portal.uwaterloo.ca/Index
-        <div class="form-group">
-            <input type="text" class="form-control" id="InputPost" placeholder="#Midterm">
-                </div>
-                <button type="post" class="btn btn-default">Post</button>
-                </form><br>
-        
-            <div class="list-group">
-                <a href="#" class="list-group-item active">#Midterm</a>
-                
-                <a href="#" class="list-group-item">Kathy: midterm sucks</a>	
-                <button type="button" class="btn btn-default btn-sm" size = "10px">
-                    <span class="glyphicon glyphicon-heart" aria-hidden="true"></span> Like
-                </button>
-                
-                <button type="button" class="btn btn-default btn-sm">
-                    <span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Comment
-                </button>                
-                <div> <br></div>
-                <a href="#" class="list-group-item">userid: content</a>
-                <button type="button" class="btn btn-default btn-sm">
-                    <span class="glyphicon glyphicon-heart" aria-hidden="true"></span> Like
-                </button>
-                <button type="button" class="btn btn-default btn-sm">
-                    <span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Comment
-                </button>                
-                <a href="#" class="list-group-item">userid: content</a>
-                <button type="button" class="btn btn-default btn-sm">
-                    <span class="glyphicon glyphicon-heart" aria-hidden="true"></span> Like
-                </button>
-                <button type="button" class="btn btn-default btn-sm">
-                    <span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Comment
-                </button>                
-                <a href="#" class="list-group-item">userid: content</a>
-                <button type="button" class="btn btn-default btn-sm">
-                    <span class="glyphicon glyphicon-heart" aria-hidden="true"></span> Like
-                </button>
-                <button type="button" class="btn btn-default btn-sm">
-                    <span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Comment
-                </button>                
-            </div>
+
+    <!-- DATABASE EXAMPLE -->
+    <div class="collapseMe">
+        <widget-row>
+            <widget-cell>
+                <h2>Share your Thoughts</h2>
+            </widget-cell>
+        </widget-row>
+        <div ng-if="dbData.value.status">
+            <td> {{createTable()}} </td>
         </div>
+        <div ng-if="!dbData.value.status">
+            <widget-row>
+                <widget-cell>
+                    <form class="form-inline" ng-submit="insertData()">
+                        <div class="input-group" style="width: 100%;">
+                            <input type="text" class="form-control" ng-model="insertValue.value" placeholder="#midterm" />
+                            <span class="input-group-btn" style="overflow:hidden;">
+                                <button class="btn btn-primary glyphicon glyphicon glyphicon-ok btn" type="submit" style="margin-top: -1px;"> Post </button>
+                            </span>
+                        </div>
+                    </form>
+                </widget-cell>
+            </widget-row>
+
+            <widget-row ng-repeat="item in dbData.value">
+                <widget-cell style="border-style:solid; border-width:1px">
+                    <!-- <a href="#" class="list-group-item">{{item.userId}}: {{item.value}}</a> -->
+                    <widget-row><font size="6"> {{item.value}} </font> </widget-row>
+                    <widget-row style="text-align : right"> -{{item.userId}} </widget-row>
+                    <widget-row> {{item.likes}} <span  class="glyphicon glyphicon-heart" aria-hidden="true"></span> <widget-row>
+                	<button ng-click="addLike(item.id)" type="button" class="btn btn-default btn-sm">
+                    	<span  class="glyphicon glyphicon-heart" aria-hidden="true"></span> Like
+                	</button>
+                	<button type="button" class="btn btn-default btn-sm">
+                    	<span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Comment
+                	</button> 
+                </widget-cell>
+            </widget-row>
         </div>
+    </div>
 </script>
+
 
 
 <!-- This template gets shown when user clicks one of the items in the list -->
