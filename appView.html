@@ -1,17 +1,57 @@
-<!-- Primary template that will get shown when widget loads -->
-<script type="text/ng-template" id="reflectMain.html"> 
-	<widget-row ng-repeat="item in items" clickable ng-click="showDetails(item)">
-		<widget-cell fill>
-			<span class="itemName">{{item.title}}</span>
-			<span ng-repeat= "tag in item.tags" class="label label-success">
-				{{tag}}
-			</span>
-		</widget-cell>
-		<widget-cell>
-			<widget-icon name="angle-right"></widget-icon>
-		</widget-cell>
-	</widget-row>
+<script type="text/ng-template" id="loading.html">
+    <widget-row>
+        <widget-cell>
+            <div class="pDetails">
+                Loading..
+            </div>
+        </widget-cell>
+    </widget-row>
 </script>
+
+
+<!-- Primary template that will get shown when widget loads -->
+<script type="text/ng-template" id="reflectMain.html">
+
+    <!-- DATABASE EXAMPLE -->
+    <div class="collapseMe">
+        <widget-row>
+            <widget-cell>
+                <h2>Share your Thoughts</h2>
+            </widget-cell>
+        </widget-row>
+        <div ng-if="dbData.value.status">
+            <td> {{createTable()}} </td>
+        </div>
+        <div ng-if="!dbData.value.status">
+            <widget-row>
+                <widget-cell>
+                    <form class="form-inline" ng-submit="insertData()">
+                        <div class="input-group" style="width: 100%;">
+                            <input type="text" class="form-control" ng-model="insertValue.value" placeholder="#midterm" />
+                            <span class="input-group-btn" style="overflow:hidden;">
+                                <button class="btn btn-primary glyphicon glyphicon glyphicon-ok btn" type="submit" style="margin-top: -1px;"> Post </button>
+                            </span>
+                        </div>
+                    </form>
+                </widget-cell>
+            </widget-row>
+
+            <widget-row ng-repeat="item in dbData.value">
+                <widget-cell>
+                    <a href="#" class="list-group-item">{{item.userId}}: {{item.value}}</a>
+                	<button type="button" class="btn btn-default btn-sm">
+                    	<span class="glyphicon glyphicon-heart" aria-hidden="true"></span> Like
+                	</button>
+                	<button type="button" class="btn btn-default btn-sm">
+                    	<span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Comment
+                	</button> 
+                </widget-cell>
+            </widget-row>
+        </div>
+    </div>
+</script>
+
+
 
 <!-- This template gets shown when user clicks one of the items in the list -->
 <script type="text/ng-template" id="reflectDetails.html"> 
