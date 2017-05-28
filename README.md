@@ -9,10 +9,8 @@ Release versions can be view on [UWaterloo Portal](https://portal.uwaterloo.ca)
 
 - `git clone` this repo or download as ZIP
 - To install dependencies, `cd` into the local repo and execute the following command:
-```
-bower install
-```
-- 
+
+
 
 ## Built With
 
