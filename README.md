@@ -1,4 +1,4 @@
-# Stow that Window
+# Reflect
 A place for people to share their thoughts, opinions and ideas annynomously to the university, faculty members and profs.
 
 ### Release Version
